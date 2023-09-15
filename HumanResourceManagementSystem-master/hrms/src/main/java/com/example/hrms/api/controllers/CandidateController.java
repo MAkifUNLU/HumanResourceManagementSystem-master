@@ -3,11 +3,7 @@ package com.example.hrms.api.controllers;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import com.example.hrms.business.abstracts.CandidateService;
 import com.example.hrms.core.utilities.results.DataResult;
@@ -27,7 +23,21 @@ public class CandidateController {
 		this.candidateService = candidateService;
 	}
 
+	@PostMapping("/add")
+	public Result add(@RequestBody Candidate candidate) {
 
+		return this.candidateService.add(candidate);
+	}
+
+	@PostMapping("/update")
+	public Result update(@RequestBody Candidate candidate){
+		return this.candidateService.update(candidate);
+	}
+
+	@PostMapping("/delete")
+	public Result delete(@RequestParam("id") int id){
+		return this.candidateService.delete(id);
+	}
 
 	@PostMapping("/signup")
 	public Result signUp(@RequestBody Candidate candidate) {

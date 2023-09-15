@@ -46,5 +46,16 @@ public class PositionManager implements PositionService {
 		}
 		
 	}
+	@Override
+	public Result update(Position position) {
+		this.positionDao.save(position);
+		return new SuccessResult("Job position has been updated.");
+	}
+
+	@Override
+	public Result delete(int id) {
+		this.positionDao.deleteById(id);
+		return new SuccessResult("Job position has been deleted.");
+	}
 
 }

@@ -28,7 +28,25 @@ public class CandidateManager implements CandidateService {
 		this.validationService=validationService;
 	}
 
+	@Override
+	public Result add(Candidate candidate) {
 
+		this.candidateDao.save(candidate);
+		return new SuccessResult("Candidate has been added.");
+
+	}
+
+	@Override
+	public Result update(Candidate candidate) {
+		this.candidateDao.save(candidate);
+		return new SuccessResult("Candidate has been updated.");
+	}
+
+	@Override
+	public Result delete(int id) {
+		this.candidateDao.deleteById(id);
+		return new SuccessResult("Candidate has been deleted.");
+	}
 
 	@Override
 	public Result signUp(Candidate candidate) {

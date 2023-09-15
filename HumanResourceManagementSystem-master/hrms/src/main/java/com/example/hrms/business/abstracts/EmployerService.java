@@ -8,7 +8,9 @@ import com.example.hrms.entities.concretes.Employer;
 import com.example.hrms.entities.concretes.JobAdvert;
 
 public interface EmployerService {
-	
+	Result add(Employer employer);
+	Result update(Employer employer);
+	Result delete(int id);
 	Result signUp(Employer employer);
 	DataResult<List<Employer>> getAll();
 	

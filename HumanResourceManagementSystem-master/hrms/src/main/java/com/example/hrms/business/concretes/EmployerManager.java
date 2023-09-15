@@ -27,7 +27,25 @@ public class EmployerManager implements EmployerService {
 		super();
 		this.employerDao = employerDao;
 	}
+	@Override
+	public Result add(Employer employer) {
+		this.employerDao.save(employer);
+		return new SuccessResult("Employer has been added.");
 
+	}
+
+	@Override
+	public Result update(Employer employer) {
+		this.employerDao.save(employer);
+		return new SuccessResult("Employer has been updated.");
+
+	}
+
+	@Override
+	public Result delete(int id) {
+		this.employerDao.deleteById(id);
+		return new SuccessResult("Employer has been deleted.");
+	}
 
 	@Override
 	public Result signUp(Employer employer) {
